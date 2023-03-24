@@ -22,14 +22,14 @@ func ParseReview(url ReviewUrl) Ratings {
 	var ratings Ratings
 
 	// ratings.reviewLink = url
-	resp, err := http.Get(string(url))
+	res, err := http.Get(string(url))
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	defer resp.Body.Close()
+	defer res.Body.Close()
 
-	fileScanner := bufio.NewScanner(resp.Body)
+	fileScanner := bufio.NewScanner(res.Body)
 	fileScanner.Split(bufio.ScanLines)
 
 	findGroup := regexp.MustCompile(`<h3>([0-9\w\s\.\\!\*\-_:;'",’]+)</h3>`)
@@ -70,5 +70,8 @@ func ParseReview(url ReviewUrl) Ratings {
 			ratings.readerRating = num
 		}
 	}
+	// printing is not intended behavior - just for testing purposes
+	// can tie this into dependency injection model? 
+	fmt.Println(ratings)
 	return ratings
 }

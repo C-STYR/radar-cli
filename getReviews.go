@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
-func getReviews(reviewsChan *UrlList, resultsChan *ResultList) {
+/* 
+GetReviews is the entrypoint - it calls FindIndices() and then listens for review links 
+- when links arrive, it calls ParseReview() and sends the review struct down the results channel
+*/
+func GetReviews(reviewsChan *UrlList, resultsChan *ResultList) {
 
 	FindIndices(reviewsChan)
 	for {
