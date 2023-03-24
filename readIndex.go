@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// TODO: why is links a map and not []string? is it to avoid re-allocation cost of appending to slice? 
+
 // ReadIndex parses an html file and returns a map of urls that match a given regexp
 func ReadIndex(r io.Reader) map[string]bool {
 	links := make(map[string]bool)

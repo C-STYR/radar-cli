@@ -20,16 +20,20 @@ func FindIndices(urlChan *UrlList) {
 
 	for _, page := range urls {
 
-		resp, err := http.Get(page)
+		res, err := http.Get(page)
 		if err != nil {
 			fmt.Println(err)
 		}
 
-		defer resp.Body.Close()
+		defer res.Body.Close()
 
-		links := ReadIndex(resp.Body)
+		// parse index page and find links to reviews
+		links := ReadIndex(res.Body)
 
+		// loop over links map send 
 		for url := range links {
+			// convert string to ReviewURL and send down channel
+			// is type conversion necessary? 
 			urlChan.Enqueue(CreateReviewUrl(url))
 		}
 	}
