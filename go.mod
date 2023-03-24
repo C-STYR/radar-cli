@@ -1,3 +1,3 @@
-module server
+module github.com/C-STYR/radar-cli
 
-go 1.19
+go 1.20

@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// readIndex parses an html file and returns a map of urls that match a given regexp
+// ReadIndex parses an html file and returns a map of urls that match a given regexp
 func ReadIndex(r io.Reader) map[string]bool {
 	links := make(map[string]bool)
 
