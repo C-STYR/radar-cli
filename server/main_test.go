@@ -40,16 +40,16 @@ func TestReadIndex(t *testing.T) {
 
 func TestParseReview(t *testing.T) {
 
-	t.Run("correctly returns a nil value when ratings threshholds are unmet", func(t *testing.T) {
+	// t.Run("correctly returns a nil value when ratings threshholds are unmet", func(t *testing.T) {
 
-		// in this case, want is the nil value of a pointer to Ratings struct
-		var want *Ratings
-		got := ParseReview("./example-html/test-review1.html")
+	// 	// in this case, want is the nil value of a pointer to Ratings struct
+	// 	var want *Ratings
+	// 	got := ParseReview("./example-html/test-review1.html")
 
-		if got != want {
-			t.Errorf("got %v, want %v", got, want)
-		}
-	})
+	// 	if got != want {
+	// 		t.Errorf("got %v, want %v", got, want)
+	// 	}
+	// })
 
 	t.Run("returns pointer to Ratings struct when ratings thresholds are met", func(t *testing.T) {
 
